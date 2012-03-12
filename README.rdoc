@@ -1,0 +1,39 @@
+= TC Kimlik No Doğrulama
+
+http://nvi.gov.tr adresi üzerinden ad, soyad, tckimlik numarası ve doğum yılı üzerinden doğrulama yapar. 
+
+
+== Kurulum
+
+=== Rails 3
+
+tckimlikdogrula gem' i Gemfile' a ekleyin.
+
+	gem "tckimlikdogrula"
+
+
+	bundle install 
+
+çalıştırarak kullanabilirsiniz.
+
+== Kullanım
+
+ActiveRecord::Base' ten türemiş bir model içerisinde first_name, last_name, identification_number, birth_year alanlarının olması gereklidir.
+
+Örneğin aşağıdaki şekilde bir modelimiz olsun.
+
+	rails g model user first_name last_name identification_number birth_year:integer
+	
+Model'i kullanırken instance method olarak tckimlikno_dogrula methodunu kullanabiliriz. 
+	
+	User.find(1).tckimlikno_dogrula
+	
+Ya da model için class method olarak kullanılabilir 
+
+	User.tckimlikno_dogrula :first_name => "....", :last_name => "....", :identification_number => "....", :birth_year => ....
+  
+
+== Geliştirme Süreci
+
+Bir sonraki versiyonda Model içinde olması gereken alanlar için generator hazırlanacaktır. Ayrıca callback fonksiyonu ve validation fonksiyonu 
+eklenecektir.
