@@ -9,8 +9,7 @@ http://nvi.gov.tr adresi üzerinden ad, soyad, tckimlik numarası ve doğum yıl
 
 tckimlikdogrula gem' i Gemfile' a ekleyin.
 
-	gem "tckimlikdogrula"
-
+	gem 'tckimlikdogrulama', '0.2.5', :git => "git@github.com:muratguzel/tckimlikdogrulama.git"
 
 	bundle install 
 
